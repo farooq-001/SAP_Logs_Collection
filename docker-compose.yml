@@ -1,0 +1,20 @@
+version: "3.7"
+
+services:
+  sap-audit-collector-c21:
+    image: sap-audit-beat:p.v1
+    container_name: sap-C21
+    restart: unless-stopped
+    network_mode: host
+    volumes:
+      - /opt/docker/sap/config/credentials.conf:/opt/sap/credentials.conf:ro
+      - /opt/docker/sap/logs/C21:/opt/sap/logs
+
+#  sap-audit-collector-c22:
+#    image: sap-audit-beat:p.v1
+#    container_name: sap-C22
+#    restart: unless-stopped
+#    network_mode: host
+#    volumes:
+#      - /opt/docker/sap/config/credentials-C22.conf:/opt/sap/credentials.conf:ro
+#      - /opt/docker/sap/logs/C22:/opt/sap/logs
